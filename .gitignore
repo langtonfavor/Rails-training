@@ -32,6 +32,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+#  idea
+modified git ignore
+
 /public/packs
 /public/packs-test
 /node_modules
