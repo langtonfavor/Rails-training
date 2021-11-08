@@ -1,0 +1,26 @@
+---
+AllCops:
+  Exclude:
+    - Gemfile
+    - Rakefile
+    - node_modules/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - .git/**/*
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+Lint/RaiseException:
+  Enabled: true
+Lint/StrcuturedOverride:
+  Enabled: true
+Metrics/LineLength:
+  Max: 100
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*
+    - spec/**/*
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
+require: rubocob-rails
