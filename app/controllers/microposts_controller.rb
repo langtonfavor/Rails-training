@@ -49,12 +49,16 @@ class MicropostsController < ApplicationController
 
   # DELETE /microposts/1 or /microposts/1.json
   def destroy
-    @micropost.destroy
     respond_to do |format|
+      if @micropost.destroy(micropost_params)
       format.html { redirect_to microposts_url, notice: "Micropost was successfully destroyed." }
       format.json { head :no_content }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @micropost.errors, status: :unprocessable_entity}
     end
-  end
+    end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
