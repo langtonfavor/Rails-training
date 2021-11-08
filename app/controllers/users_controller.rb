@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   # DELETE /users/1 or /users/1.json
   def destroy
     respond_to do |format|
-      if @user.destroy(user_params)
+      if @user.destroy
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
       else
@@ -68,6 +68,9 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
+
       params.require(:user).permit(:name, :email)
+      # params.require(:user).permit(:data)
+      #  params.require(:user).permit!
     end
 end
